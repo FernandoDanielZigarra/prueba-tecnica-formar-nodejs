@@ -1,5 +1,10 @@
 let num = process.argv[2];
 
+let regExpOnlyNumber = /[a-zA-Z!@#$%^&*(),.?":{}|<>]/;
+
+if (regExpOnlyNumber.test(num))
+  return console.log("El valor ingresado deve ser un número");
+
 function number_cardinality() {
   console.log(
     `${num.toString().at(-1) === "0" ? "zero" : ""}${
