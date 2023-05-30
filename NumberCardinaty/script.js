@@ -1,17 +1,21 @@
 let num = process.argv[2];
 
-let regExpOnlyNumber = /[a-zA-Z!@#$%^&*(),.?":{}|<>]/;
-
-if (regExpOnlyNumber.test(num))
-  return console.log("El valor ingresado deve ser un número");
-
-function number_cardinality() {
-  console.log(
-    `${num.toString().at(-1) === "0" ? "zero" : ""}${
-      num.toString().at(-1) === "5" ? "five" : ""
-    }${parseInt(num) % 2 === 0 && num.at(-1) !== "0" ? "even" : ""}${
-      parseInt(num) % 2 && num.toString().at(-1) !== "5" ? "odd" : ""
-    }`
-  );
+function number_cardinality(value) {
+  let regExpOnlyNumber = /[a-zA-Z!@#$%^&*(),.?":{}|<>]/;
+  if (regExpOnlyNumber.test(value))
+    return console.log("El valor ingresado deve ser un número");
+  let result = "";
+  if (value.toString().at(-1) === "0") {
+    result = "zero";
+  } else if (value.toString().at(-1) === "5") {
+    result = "five"
+  }else if(parseInt(value) % 2 === 0 && value.at(-1) !== "0"){
+    result = "even"
+  }else if(parseInt(value) % 2 !== 0 && value.toString().at(-1) !== "5"){
+    result = "odd"
+  }else{
+    result = value.toString()
+  }
+  return result;
 }
-number_cardinality();
+console.log(number_cardinality(num));

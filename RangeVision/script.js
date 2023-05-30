@@ -61,8 +61,8 @@ function range_vision() {
       valuesSumaryRanges.push(leftValues + rightValues);
   }
   if (!valuesSumaryRanges.includes(minOneRangeSumatory)) {
-    return console.log(false);
+    return false;
   }
-  return console.log(true);
+  return true;
 }
 range_vision();
